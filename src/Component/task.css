@@ -1,0 +1,82 @@
+
+
+.taskboxheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+.taskuserName {
+    color: #00007dcc;
+    font-weight: 650;
+    opacity: 0.7;
+    /* font-size: medium; */
+}
+.taskheading {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.taskboxheader > button {
+      color: #00007dcc;
+    font-weight: 630;
+    border: none;
+    background-color: #ffffff;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.taskcontainer {
+    display: flex;
+    align-items: center;
+    /* flex-direction: c; */
+    box-shadow:0 1px 2px rgb(0 0 0 / 0.2);
+    padding: 1rem;
+    padding-left: 2.3rem;
+}
+.rounded-checkbox {
+    margin-right: 1rem;
+    width:1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid rgb(35, 156, 89);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .rounded-checkbox:checked {
+    appearance: auto;
+    clip-path: circle(50% at 50% 50%);
+    background-color: blue;
+  } 
+
+
+
+.taskselectors {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.taskselectors > button {
+    border: none;
+    background-color: #ffffff;
+    padding: 0.5rem;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.hdrtask > h4 {
+    opacity: 0.8;
+}
+.hdrtask > p {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-weight: 500;
+}

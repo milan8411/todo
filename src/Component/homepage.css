@@ -1,0 +1,266 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    flex-direction: column; 
+}
+
+.menubarIcon > button {
+    color: #00007dcc;
+    font-weight: 630;
+    border: none;
+    background-color: #ffffff;
+}
+
+.menubarIcon {
+     display: flex; 
+    justify-content: flex-end; 
+    align-items: flex-end;
+    margin-top: 25px;
+    margin-right: 10px;
+
+}
+
+.homepage > .header {
+    display: flex;
+    align-items: flex-start;
+    /* margin-left: 47px; */
+    margin-bottom: 0.1rem;
+}
+
+.hello {
+    color: #00007dcc;
+    font-weight: 350;
+    font-style: normal;
+}
+
+.userName {
+    font-weight: 560;
+    color: #00007dcc;
+    font-style: normal;
+}
+.date {
+    color: gray;
+    opacity: 0.7;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.filter > button {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+
+
+.addtask > h3 {
+    margin-top: 30px;
+    color: #3d4676;
+}
+.filter_top_taskkist {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* space btween */
+    box-shadow:0 0px 2px rgb(0 0 0 / 0.3)
+}
+
+.top_taskone {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: 2.6rem;
+    color: #00007dcc;
+}
+.top_tasktwo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: 2.6rem;  
+    color: #00007dcc;
+}
+
+.top_tasktwo > h4 {
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-top: -0.6rem;   
+}
+.top_taskone > h4 {
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-top: -0.6rem;   
+}
+.All-Span {
+    display: flex;
+    flex-direction: column;
+}
+.last-span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+
+
+.filter_top_task {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.filter_top_task > h4 {
+    font-size: 1.3rem;
+}
+
+/* 
+.filter_bottom_taskkist {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasklist {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.task2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -8px;
+}
+
+.task1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 36px;   
+}
+
+.task2 > .tasklist >  h4 {
+    font-size: 1.3rem;
+    margin-right: 13px;
+    margin-top: -14px;
+    color: #7bb81f;
+    
+}
+
+.task3 > .tasklist >  h4 {
+    font-size: 1.3rem;
+    margin-right: 13px;
+    margin-top: -14px;
+    color: #7bb81f;
+}
+
+
+.addTaskButtonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.task3 {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 23px;
+}
+.AAAA {
+    border-left: 1px solid rgb(143, 141, 141);
+    height: 92px;
+}
+.BBBB {
+    border-left: 1px solid rgb(143, 141, 141);
+    height: 92px;
+    margin-left: 9px
+}
+.CCCC {
+    border-left: 1px solid rgb(143, 141, 141);
+    height: 92px;
+}
+
+.tasklistbutton {
+    display: flex;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    margin-left: 105px;
+} */
+
+.alltasklist{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+}
+
+.tasklist {
+    display: flex;
+    justify-content: center; 
+    /* {flex start} */
+    align-items: center;
+    width: auto;
+    height: 6rem;   
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+    padding: 0.8rem;
+    padding-right: 1.5rem;
+    /* padding-right: 7px; */
+}
+
+.tasklist >  button {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+    margin-left: 2rem;
+    margin-top: -2rem;
+    color: #82b338;
+    border: none;
+    background-color: #ffffff;
+}
+
+ 
+
+.tasklist:hover{
+    /* background-color: #82b338; */
+    box-shadow: 0 5px 8px rgb(0 0 0 / 0.1);
+    height: 6.5rem;
+}
+
+.tasklist > .tasklistbutton {
+    margin-left: 10px;
+}
+
+.addTaskLogo {
+    display: flex;
+    position: sticky;
+    justify-content: flex-end;
+}
+
+.addTaskLogo > button {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: larger;
+    font-weight: 100;
+    background-color: #fe0000;
+    border: 1px solid #fe0000;
+    border-top-left-radius: 1rem;
+    color: #ffffff;
+}
+
+.secondspan {
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+.AAA {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+

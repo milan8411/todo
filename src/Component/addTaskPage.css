@@ -1,0 +1,104 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 0rem;
+    margin-right: 6rem;
+    margin-top: 1rem;
+    margin-bottom: 2.4rem;
+}
+ 
+.header > span {
+    color: #00007dcc;
+    font-weight: 700;
+    opacity: 0.8;
+    /* border: none; */
+    /* background-color: #ffffff; */
+}
+.header > button {
+    color: #00007dcc;
+    font-weight: 630;
+    border: none;
+    background-color: #ffffff;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.formclass > select {
+    height: 2.2rem;
+    border: none;
+    box-shadow:0 1px 2px rgb(0 0 0 / 0.2);
+    width: 19rem;
+    margin-bottom:0.5rem;
+    font-size: medium;
+    /* font-stretch: expanded; */
+    opacity: 0.5;
+    font-style: initial;
+}
+.formclass > input {
+    height: 2.2rem;
+    border: none;
+    box-shadow:0 1px 2px rgb(0 0 0 / 0.2);
+    width: 19rem;
+    margin-bottom:0.5rem;  
+    font-size: medium;
+    font-weight: 550;
+    opacity: 0.4;
+}
+.addTaskIcons {
+    display: flex;
+    flex-direction: row;
+    width: 19rem;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 1rem; */
+    box-shadow:0 1px 0px rgb(0 0 0 / 0.1);  
+    font-style: initial;
+}
+
+.addTaskIC {
+    margin:0.4rem ;
+    padding: 0.4rem;
+    color: #82b338;
+    font-weight: 550;
+}
+
+.AddButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    margin-top: 3rem;
+}
+
+.AddButton > button {
+    width: 10rem;
+    height: 2.4rem;
+    border-radius: 1.5rem;
+    background-color: #fe0000;
+    color: aliceblue;
+    border: none;
+    box-shadow:0px 9px 12px rgb(218 25 25 / 64%)
+}
+.MuiSvgIcon-root {
+    font-size: 1.2rem !important;
+}
