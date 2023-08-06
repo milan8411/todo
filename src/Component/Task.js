@@ -7,14 +7,12 @@ import TaskIDContext from "../Context/Tasks/TaskIDContext";
 
 function Task() {
   const navigate = useNavigate();
-  let DateTime = new Date()
+  let DateTime = new Date();
   const { taskList } = useContext(TaskContext);
   const { taskType } = useContext(TaskIDContext);
 
-  console.log(taskList);
-  console.log(taskType);
-  
-
+  console.log(taskList[0].tasktype == taskType);
+  console.log(taskList[0].tasktype, taskType);
 
   const backTask = () => {
     // console.log('1');
@@ -27,7 +25,6 @@ function Task() {
     month: "long",
     day: "numeric",
   };
-
 
   return (
     <div className="taskbox">
@@ -55,23 +52,41 @@ function Task() {
         <button>Priorty</button>
         <button>Date</button>
       </div>
-        {taskList.map((task,index) => {
-          // console.log(task);
+      {taskList.map((task, index) => {
+        if (task.tasktype == taskType) {
           return (
             <>
-            <div className="taskcontainer">
-            <input
-              type="checkbox"
-              className="rounded-checkbox"
-              // id="checkbox"
-            ></input>
-            <div className="hdrtask">
-              <h4>{task.taskinput}</h4>
-              <p>{task.tasktype}</p>
-            </div>
-      </div>
-          </>);
-        })}
+              <div className="taskcontainer">
+                <input
+                  type="checkbox"
+                  className="rounded-checkbox"
+                  // id="checkbox"
+                ></input>
+                <div className="hdrtask">
+                  <h4>{task.taskinput}</h4>
+                  <p>{task.tasktype}</p>
+                </div>
+              </div>
+            </>
+          );
+        } else if (taskType == "all") {
+          return (
+            <>
+              <div className="taskcontainer">
+                <input
+                  type="checkbox"
+                  className="rounded-checkbox"
+                  // id="checkbox"
+                ></input>
+                <div className="hdrtask">
+                  <h4>{task.taskinput}</h4>
+                  <p>{task.tasktype}</p>
+                </div>
+              </div>
+            </>
+          );
+        }
+      })}
     </div>
   );
 }

@@ -22,50 +22,46 @@ function Homepage() {
   const { setTaskList } = useContext(TaskContext);
   const { taskType } = useContext(TaskIDContext);
   const { setTaskType } = useContext(TaskIDContext);
-  
 
   let DateTime = new Date();
-  const [createdTask,setCreatedTask] =useState(0);
-  const [completedTask,setCompletedTask] =useState(0);
-  const [allSchedule,setAllSchedule] =useState(0);
-  const [personalErrands,setPersonalErrands] =useState(0);
-  const [workProject,setWorkProject] =useState(0);
-  const [groceryList,setGroceryList] =useState(0);
-  const [school,setSchool] =useState(0);
+  const [createdTask, setCreatedTask] = useState(0);
+  const [completedTask, setCompletedTask] = useState(0);
+  const [allSchedule, setAllSchedule] = useState(0);
+  const [personalErrands, setPersonalErrands] = useState(0);
+  const [workProject, setWorkProject] = useState(0);
+  const [groceryList, setGroceryList] = useState(0);
+  const [school, setSchool] = useState(0);
 
   useEffect(() => {
     // console.log(1);
-    taskCount (taskList);
-  },[taskList])
-  
-  const taskCount = (taskList) => { 
-    taskList.forEach(task => {
+    taskCount(taskList);
+  }, [taskList]);
+
+  const taskCount = (taskList) => {
+    taskList.forEach((task) => {
       // console.log(task);
-      setCreatedTask((createdTask)=> createdTask+1);
-      if(task.key == "Personal Errands"){
-        setPersonalErrands((personalErrands) => personalErrands+1);
-      }else if(task.key == "Work Project"){
-        setWorkProject((workProject) => workProject+1);
-      }else if(task.key == "Grocery List"){
-        setGroceryList((groceryList) => groceryList+1);
-      }else if(task.key == "School"){
-        setSchool((school) => school+1);
-      } 
+      setCreatedTask((createdTask) => createdTask + 1);
+      setAllSchedule((allSchedule) => allSchedule + 1);
+      if (task.key == "Personal Errands") {
+        setPersonalErrands((personalErrands) => personalErrands + 1);
+      } else if (task.key == "Work Project") {
+        setWorkProject((workProject) => workProject + 1);
+      } else if (task.key == "Grocery List") {
+        setGroceryList((groceryList) => groceryList + 1);
+      } else if (task.key == "School") {
+        setSchool((school) => school + 1);
+      }
     });
-    
-  }
-  console.log(taskType,taskList);
-  
-  
-  
-  
+  };
+  console.log(taskType, taskList);
+
   const options = {
     weekday: "long",
     // year: "numeric",
     month: "long",
     day: "numeric",
   };
-  
+
   const navigate = useNavigate();
 
   const openaddTask = (e) => {
@@ -73,6 +69,11 @@ function Homepage() {
   };
 
   const openTask = (e) => {
+    navigate("task");
+  };
+
+  const openDiv = (value) => {
+    setTaskType(value);
     navigate("task");
   };
 
@@ -113,7 +114,11 @@ function Homepage() {
 
           <div className="filter_bottom_taskkist">
             <div className="alltasklist">
-              <div className="tasklist" onClick={(e) => {setTaskType("Personal Errands")}} >
+              <div
+                className="tasklist"
+                onClick={(e) => {
+                  openDiv("all");
+                }}>
                 <button>
                   <ListAltOutlined />
                 </button>
@@ -125,7 +130,11 @@ function Homepage() {
                 </span>
               </div>
 
-              <div className="tasklist">
+              <div
+                className="tasklist"
+                onClick={(e) => {
+                  openDiv("Personal Errands");
+                }}>
                 <button>
                   <PersonOutline />
                 </button>
@@ -137,7 +146,11 @@ function Homepage() {
                 </span>
               </div>
 
-              <div className="tasklist">
+              <div
+                className="tasklist"
+                onClick={(e) => {
+                  openDiv("Work Project");
+                }}>
                 <button>
                   <BusinessCenterOutlined />
                 </button>
@@ -149,7 +162,11 @@ function Homepage() {
                 </span>
               </div>
 
-              <div className="tasklist">
+              <div
+                className="tasklist"
+                onClick={(e) => {
+                  openDiv("Grocery List");
+                }}>
                 <button>
                   <WorkOutlineOutlined />
                 </button>
@@ -161,7 +178,11 @@ function Homepage() {
                 </span>
               </div>
 
-              <div className="tasklist">
+              <div
+                className="tasklist"
+                onClick={(e) => {
+                  openDiv("School");
+                }}>
                 <button>
                   <MenuBookOutlined />
                 </button>

@@ -6,26 +6,21 @@ import TaskContext from "./Context/Tasks/TaskContext";
 import TaskIDContext from "./Context/Tasks/TaskIDContext";
 import { useState } from "react";
 
-
-
- function App  ()  {
-  
+function App() {
   const [taskList, setTaskList] = useState([]);
-  const [taskType, setTaskType] = useState(0);
+  const [taskType, setTaskType] = useState("");
 
   return (
-
     <>
-    <TaskContext.Provider value={{taskList,setTaskList}}>
-      <TaskIDContext.Provider value={{taskType, setTaskType}}>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="add-task" element={<AddTaskPage />} />
-        <Route path="task" element={<Task />} />
-      </Routes>
-      </TaskIDContext.Provider>
-    </TaskContext.Provider>
-  
+      <TaskContext.Provider value={{ taskList, setTaskList }}>
+        <TaskIDContext.Provider value={{ taskType, setTaskType }}>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="add-task" element={<AddTaskPage />} />
+            <Route path="task" element={<Task />} />
+          </Routes>
+        </TaskIDContext.Provider>
+      </TaskContext.Provider>
     </>
   );
 }

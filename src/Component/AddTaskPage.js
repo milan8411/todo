@@ -25,34 +25,29 @@ import {
   VoiceOverOff,
 } from "@material-ui/icons";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from "react-router-dom";
 import TaskContext from "../Context/Tasks/TaskContext";
 
-
 function AddTaskPage() {
-  
   const { taskList } = useContext(TaskContext);
   const { setTaskList } = useContext(TaskContext);
 
-  // Stats & Variable 
+  // Stats & Variable
 
-  const navigate  = useNavigate();
-  // Functions 
-  const handleSubmitform = (e,values,resetForm) => {
+  const navigate = useNavigate();
+  // Functions
+  const handleSubmitform = (e, values, resetForm) => {
     e.preventDefault();
-    setTaskList([...taskList,{...values,key: values.tasktype}]);
-    resetForm();    
-  }
+    setTaskList([...taskList, { ...values, key: values.tasktype }]);
+    resetForm();
+  };
 
   // console.log(taskList);
 
-
   const backTask = () => {
     // console.log('1');
-    navigate("/")
+    navigate("/");
   };
-
-
 
   // Render Data
 
@@ -81,8 +76,7 @@ function AddTaskPage() {
           // }}
           onSubmit={(values, { setSubmitting }) => {
             // console.log(values);
-          }}
-        >
+          }}>
           {({
             values,
             errors,
@@ -95,7 +89,8 @@ function AddTaskPage() {
             /* and other goodies */
           }) => (
             <form className="formclass">
-              <select name="tasktype"
+              <select
+                name="tasktype"
                 id="tasktype"
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -113,8 +108,7 @@ function AddTaskPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.taskinput}
-                placeholder=" Task Input"
-              ></input>
+                placeholder=" Task Input"></input>
 
               <input
                 id="date"
@@ -143,9 +137,15 @@ function AddTaskPage() {
                 </p>
               </div>
 
-                <div className="AddButton">
-                  <button className="addBtn"  onClick={(e) => {handleSubmitform(e, values,resetForm)}}>ADD TASK</button>
-                </div>
+              <div className="AddButton">
+                <button
+                  className="addBtn"
+                  onClick={(e) => {
+                    handleSubmitform(e, values, resetForm);
+                  }}>
+                  ADD TASK
+                </button>
+              </div>
             </form>
           )}
         </Formik>
