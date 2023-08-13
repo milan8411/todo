@@ -126,7 +126,7 @@ function Homepage() {
                   <span className="secondspan">
                     All <br /> Schedule
                   </span>
-                  <span className="last-span">{allSchedule}task</span>
+                  <span className="last-span">{`${allSchedule} `}task</span>
                 </span>
               </div>
 
@@ -142,7 +142,7 @@ function Homepage() {
                   <span className="secondspan">
                     Personal <br /> Errands
                   </span>
-                  <span className="last-span">{personalErrands}task</span>
+                  <span className="last-span">{`${personalErrands} `}task</span>
                 </span>
               </div>
 
@@ -158,7 +158,7 @@ function Homepage() {
                   <span className="secondspan">
                     Work <br /> Project
                   </span>
-                  <span className="last-span">{workProject}task</span>
+                  <span className="last-span">{`${workProject} `}task</span>
                 </span>
               </div>
 
@@ -174,7 +174,7 @@ function Homepage() {
                   <span className="secondspan">
                     Grocery <br /> List
                   </span>
-                  <span className="last-span">{groceryList}task</span>
+                  <span className="last-span">{`${groceryList} `}task</span>
                 </span>
               </div>
 
@@ -192,7 +192,7 @@ function Homepage() {
                     <br />
                     Task
                   </span>
-                  <span className="last-span">{school}task</span>
+                  <span className="last-span">{`${school} `}task</span>
                 </span>
               </div>
             </div>

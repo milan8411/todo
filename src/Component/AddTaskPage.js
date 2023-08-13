@@ -37,6 +37,7 @@ function AddTaskPage() {
   const navigate = useNavigate();
   // Functions
   const handleSubmitform = (e, values, resetForm) => {
+    console.log(values)
     e.preventDefault();
     setTaskList([...taskList, { ...values, key: values.tasktype }]);
     resetForm();
@@ -62,7 +63,7 @@ function AddTaskPage() {
       </span>
       <div className="container">
         <Formik
-          initialValues={{ tasktype: "", taskinput: "", date: "" }}
+          initialValues={{ id:taskList.length + 1,  tasktype: "", taskinput: "", date: "", completed: false, priority: false , expanded: false }}
           // validate={(values) => {
           //   const errors = {};
           //   if (!values.email) {
