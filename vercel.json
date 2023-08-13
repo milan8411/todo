@@ -1,6 +1,19 @@
 {
-    "scripts": {
-      "build": "npm install --legacy-peer-deps"
-    }
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "buildCommand": "npm install --force && npm run build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
   }
   
