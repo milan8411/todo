@@ -2,6 +2,7 @@ import {
   ArrowBack,
   ArrowDownward,
   Attachment,
+  Delete,
   Edit,
   Flare,
   MenuOutlined,
@@ -12,6 +13,13 @@ import "./task.css";
 import { useNavigate } from "react-router-dom";
 import TaskContext from "../Context/Tasks/TaskContext";
 import TaskIDContext from "../Context/Tasks/TaskIDContext";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  Button,
+} from "@mui/material";
 
 function Task() {
   const navigate = useNavigate();
@@ -25,6 +33,38 @@ function Task() {
   const [isCheckingNewInput, setCheckingNewInput] = useState(false);
   const [updatedTask, setUpdatedTask] = useState([]);
   const [priortyTask, setPriortyTask] = useState([]);
+
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [editedTaskInput, setEditedTaskInput] = useState("");
+  const [idd, setIDD] = useState(null);
+
+  const handleEditClick = (taskInput, taskID) => {
+    setIDD(taskID);
+    console.log(idd);
+    setEditedTaskInput(taskInput);
+    setOpenEditDialog(true);
+  };
+
+  const handleEditDialogClose = () => {
+    setOpenEditDialog(false);
+  };
+
+  const handleEditSave = async () => {
+    console.log(idd);
+    const newTaskList = [...taskList];
+    newtasklist.map((element, index) => {
+      console.log(element.id, idd);
+      if (element.id === idd) {
+        element.taskinput = editedTaskInput;
+      }
+    });
+
+    setTaskList(taskList);
+    setOpenEditDialog(false);
+
+    console.log(newTaskList);
+    console.log(taskList);
+  };
 
   const backTask = () => {
     // console.log('1');
@@ -41,8 +81,13 @@ function Task() {
     // }
   };
 
-  const handleChange = async (e, task) => {
+  const handleAllTask = async () => {
+    setNewtasklist(taskList);
+  };
+
+  const handleCheckboxChange = async (e, task) => {
     await setCheckingNewInput(true);
+
     const newTaskList = [...taskList];
     console.log(task);
     console.log(taskList);
@@ -54,11 +99,8 @@ function Task() {
     setTaskList(taskList);
     await setCheckingNewInput(false);
 
-    //     // setTaskList(taskList);
-  };
-
-  const handleAllTask = async () => {
-    setNewtasklist(taskList);
+    console.log(newTaskList);
+    console.log(taskList);
   };
 
   const handleCompletedTask = async () => {
@@ -75,15 +117,46 @@ function Task() {
   };
 
   const handlePriorityMark = async (e, task) => {
-    setPriortyTask((priortyTask) => [...priortyTask, task]);
+    // await setCheckingNewInput(true);
+
+    const newTaskList = [...taskList];
+    console.log(task);
+    console.log(taskList);
+    newTaskList.map((element, index) => {
+      if (element.id == task.id) {
+        element.priorty = !element.priorty;
+      }
+    });
+    setTaskList(taskList);
+    // await setCheckingNewInput(false);
+
+    console.log(newTaskList);
+    console.log(taskList);
   };
 
-  const handlePriorityTasklist = async (e, task) => {
-    setNewtasklist(priortyTask);
+  const handlePriorityTasklist = async () => {
+    let updatedTaskArr = newtasklist.filter((task, index) => {
+      console.log(1);
+      return task.priorty;
+    });
+    setUpdatedTask(newtasklist);
+    await setNewtasklist(updatedTaskArr);
+  };
+
+  const handleDelete = async (e, task) => {
+    // const newTaskList = [...taskList];
+    console.log(task);
+    console.log(taskList);
+    const newTaskList = taskList.filter((element) => element.id !== task.id);
+    setTaskList(newTaskList);
+    setNewtasklist(newTaskList);
+
+    console.log(newTaskList);
+    console.log(taskList);
   };
 
   // console.log(taskList);
-  console.log(updatedTask);
+  // console.log(updatedTask);
 
   const options = {
     weekday: "long",
@@ -121,7 +194,6 @@ function Task() {
       {newtasklist.map((task, index) => {
         console.log(newtasklist);
         task.id = index + 1;
-
         // console.log(task);
         if (task.tasktype == taskType) {
           return (
@@ -134,7 +206,7 @@ function Task() {
                     checked={task.completed}
                     className="rounded-checkbox"
                     onChange={(e) => {
-                      handleChange(e, task);
+                      handleCheckboxChange(e, task);
                     }}
                   />
                 )}
@@ -166,11 +238,19 @@ function Task() {
                           boxShadow: "0 1px 2px rgb(0 0 0 / 0.2)",
                         }}>
                         <ArrowDownward></ArrowDownward>
-                        <Edit></Edit>
+                        <button
+                          onClick={() =>
+                            handleEditClick(task.taskinput, task.id)
+                          }>
+                          <Edit></Edit>
+                        </button>
                         <button onClick={(e) => handlePriorityMark(e, task)}>
                           <Star></Star>
                         </button>
                         <Attachment></Attachment>
+                        <button onClick={(e) => handleDelete(e, task)}>
+                          <Delete></Delete>
+                        </button>
                       </div>
                     </>
                   )}
@@ -200,6 +280,20 @@ function Task() {
           console.log(taskList);
         }
       })}
+      <Dialog open={openEditDialog} onClose={handleEditDialogClose}>
+        <DialogTitle>Edit Task</DialogTitle>
+        <DialogContent>
+          <TextField
+            label="Edit Task"
+            variant="outlined"
+            fullWidth
+            value={editedTaskInput}
+            onChange={(e) => setEditedTaskInput(e.target.value)}
+          />
+        </DialogContent>
+        <Button onClick={handleEditSave}>Save</Button>
+        <Button onClick={handleEditDialogClose}>Cancel</Button>
+      </Dialog>
     </div>
   );
 }
